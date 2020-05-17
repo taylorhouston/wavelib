@@ -1,7 +1,7 @@
 {
   "name": "wavelib-example",
   "homepage": "https://taylorhouston.github.io/wavelib",
-  "version": "0.0.0",
+  "version": "0.0.6",
   "private": false,
   "dependencies": {
     "react": "file:../node_modules/react",
