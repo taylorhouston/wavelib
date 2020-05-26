@@ -1,13 +1,13 @@
 import React from 'react'
-  
-import { Field, TextField, Button, Radio, Checkbox } from 'wavelib'
+
+import { WField, WTextField, WButton, Radio, Checkbox } from 'wavelib'
 import 'wavelib/dist/index.css'
 
 const App = () => {
   return <>
-    <Field />
-    <Button>Text</Button>
-    <TextField />
+    <WField />
+    <WButton>Text</WButton>
+    <WTextField />
     <Radio />
     <Checkbox />
 

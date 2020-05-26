@@ -1,7 +1,7 @@
 import React from 'react'
-import { Field } from './Field'
+import { WField } from './WField'
 
-export const TextField = ({ id, classes, type, name, onChange, labelText }) => {
+export const WTextField = ({ id, classes, type, name, onChange, labelText }) => {
   const changeHandler = () => {
     onChange()
   }
@@ -9,7 +9,7 @@ export const TextField = ({ id, classes, type, name, onChange, labelText }) => {
   return (
     <div className={`TextField ${classes}`}>
       <label htmlFor={id}>{labelText}</label>
-      <Field id={id} type={type} name={name} onChange={changeHandler} />
+      <WField id={id} type={type} name={name} onChange={changeHandler} />
     </div>
   )
 }

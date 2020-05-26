@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
 import PropTypes from 'prop-types'
+import styled from 'styled-components'
 
-export const Field = ({ name, id, type, onChange }) => {
+export const WField = ({ name, id, type, onChange }) => {
   const [tempType, setTempType] = useState(type)
 
   const handleClick = () => {
@@ -21,7 +22,7 @@ export const Field = ({ name, id, type, onChange }) => {
 
   return (
     <div className='Field'>
-      <input
+      <Field
         onChange={handleChange}
         type={tempType}
         name={name}
@@ -37,6 +38,11 @@ export const Field = ({ name, id, type, onChange }) => {
   )
 }
 
-Field.propTypes = {
+WField.propTypes = {
   type: PropTypes.oneOf(['text', 'number', 'password'])
 }
+
+const Field = styled.input`
+  height: 4.8rem
+  padding: 0 1.2rem
+`

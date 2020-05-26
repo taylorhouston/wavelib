@@ -1,7 +1,8 @@
 import React, {Fragment} from 'react'
 import PropTypes from 'prop-types'
+import styled from 'styled-components'
 
-export const Button = ({ type, link, title, children, submitted }) => {
+export const WButton = ({ type, link, title, children, submitted }) => {
   return (
     <>
       {type !== 'link' && (
@@ -18,7 +19,14 @@ export const Button = ({ type, link, title, children, submitted }) => {
   )
 }
 
-Button.propTypes = {
+WButton.propTypes = {
   type: PropTypes.oneOf(['button', 'submit', 'reset', 'link']),
   submitted: PropTypes.bool
 }
+
+
+const Button = styled.button`
+  padding: 1rem 2rem;
+  font-size: 1.6rem;
+  height: 4rem;
+`
