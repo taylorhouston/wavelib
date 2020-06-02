@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
-export const WField = ({ name, id, type, onChange }) => {
+export const WField = ({ name, id, type, onChange, height }) => {
   const [tempType, setTempType] = useState(type)
 
   const handleClick = () => {
@@ -22,13 +22,11 @@ export const WField = ({ name, id, type, onChange }) => {
 
   return (
     <div className='Field'>
-      <Field
-        onChange={handleChange}
-        type={tempType}
-        name={name}
-        id={id}
-        className='Field__input'
-      />
+      {type !== 'textarea' && (
+        <Field onChange={handleChange} type={tempType} name={name} id={id} />
+      )}
+      {type === 'textarea' && <TextArea height={height} />}
+
       {type === 'password' && (
         <button onClick={handleClick}>
           {tempType === 'password' ? 'show' : 'hide'}
@@ -43,6 +41,12 @@ WField.propTypes = {
 }
 
 const Field = styled.input`
-  height: 4.8rem
-  padding: 0 1.2rem
+  height: 4rem;
+  padding: 0 1.2rem;
+`
+
+const TextArea = styled.textarea`
+  height: ${(props) => props.height || 4}rem;
+  width: 100%;
+  padding: 1.2rem;
 `

@@ -5,15 +5,11 @@ import styled from 'styled-components'
 export const WButton = ({ type, link, title, children, submitted }) => {
   return (
     <>
-      {type !== 'link' && (
-        <button type={type} className='Button' disabled={submitted}>
-          {submitted ? '' : children}
-        </button>
-      )}
+      {type !== 'link' && <Button>{submitted ? '' : children}</Button>}
       {type === 'link' && (
-        <a className='Button__a' href={link} title={title}>
+        <Anchor href={link} title={title}>
           {children}
-        </a>
+        </Anchor>
       )}
     </>
   )
@@ -24,9 +20,18 @@ WButton.propTypes = {
   submitted: PropTypes.bool
 }
 
-
 const Button = styled.button`
+  margin: 1rem 0;
   padding: 1rem 2rem;
-  font-size: 1.6rem;
+  font-size: 1.5rem;
   height: 4rem;
+  border: 0;
+`
+
+const Anchor = styled.a`
+  margin: 1rem 0;
+  padding: 1rem 2rem;
+  font-size: 1.5rem;
+  height: 4rem;
+  background-color: lightgray;
 `
