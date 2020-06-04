@@ -2,10 +2,12 @@ import React, {Fragment} from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
-export const WButton = ({ type, link, title, children, submitted }) => {
+export const WButton = ({ type, link, title, children, submitted, clickHandler }) => {
   return (
     <>
-      {type !== 'link' && <Button>{submitted ? '' : children}</Button>}
+      {type !== 'link' && (
+        <Button onClick={clickHandler} type={type}>{submitted ? '' : children}</Button>
+      )}
       {type === 'link' && (
         <Anchor href={link} title={title}>
           {children}

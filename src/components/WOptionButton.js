@@ -6,18 +6,18 @@ export const WOptionButton = ({
   name,
   id,
   changeHandler,
-  labelText,
+  text,
   type,
   testid
 }) => {
   return (
-    <label htmlFor={id}>
+    <Label htmlFor={id}>
       {type === 'checkbox' ? (
         <FakeCheckbox role='checkbox' data-testid={testid} />
       ) : (
         <FakeRadio role='radio' data-testid={testid} />
       )}
-      {labelText}
+      {text}
       <HiddenInput
         type={type}
         value='true'
@@ -25,16 +25,24 @@ export const WOptionButton = ({
         id={id}
         onChange={changeHandler}
       />
-    </label>
+    </Label>
   )
 }
+const Label = styled.label`
+  display: inline-block;
+  line-height: 4rem;
+  vertical-align: middle;
+`
 
 const HiddenInput = styled.input`
   display: none;
 `
 
 const FakeCheckbox = styled.div`
+  display: inline-block;
+  vertical-align: middle;
   border: 1px solid;
+  margin: 0 0.5rem;
   width: 2.6rem;
   height: 2.6rem;
 `
@@ -46,6 +54,6 @@ const FakeRadio = styled(FakeCheckbox)`
 WOptionButton.propTypes = {
   name: PropTypes.string,
   id: PropTypes.string,
-  labelText: PropTypes.string,
+  text: PropTypes.string,
   type: PropTypes.oneOf(['checkbox', 'radio'])
 }

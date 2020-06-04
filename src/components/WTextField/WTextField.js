@@ -8,7 +8,7 @@ export const WTextField = ({
   type,
   name,
   onChange,
-  labelText,
+  text,
   overlap
 }) => {
   const changeHandler = () => {
@@ -17,7 +17,7 @@ export const WTextField = ({
 
   return (
     <Container>
-      <WLabel overlap={overlap}>{labelText}</WLabel>
+      <WLabel overlap={overlap}>{text}</WLabel>
       <WField
         id={id}
         type={type}

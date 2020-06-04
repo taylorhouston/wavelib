@@ -1,5 +1,6 @@
 import React, { Fragment, useEffect } from 'react'
 import styled from 'styled-components'
+
 export const WModal = (props) => {
   useEffect(() => {
     if (props.show) {
@@ -10,14 +11,15 @@ export const WModal = (props) => {
   }, [props.show])
 
   const closeHandler = (e) => {
-    props.closeHandler()
-    document.body.style.overflow = 'auto'
+    if (props.closable) {
+      props.closeHandler()
+      document.body.style.overflow = 'auto'
+    }
   }
 
   const escHandler = (e) => {
     if (e.which === 27) {
-      props.closeHandler()
-      document.body.style.overflow = 'auto'
+      closeHandler()
     }
   }
 
@@ -61,10 +63,9 @@ const WModalContent = styled.div`
 `
 
 const WModalScrollArea = styled.div`
-  position: relative;
+  position: absolute;
   z-index: 5001;
   width: 100%;
-  height: 100%;
   overflow-y: auto;
   display: ${(props) => (props.show ? 'block' : 'none')};
 `

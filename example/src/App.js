@@ -1,16 +1,27 @@
-import React from 'react'
-import { WField, WTextField, WButton, WModal, WOptionButton } from 'wavelib'
+import React, { useState } from 'react'
+import { WField, WTextField, WButton, WModal, WOptionButton, WSelectBox } from 'wavelib'
 const App = () => {
+  const [openModal, setOpenModal] = useState(false)
+  const openModalHandler = () => {
+    setOpenModal(true)
+  }
+
+  const closeHandler = () => {
+    setOpenModal(false)
+  }
+
   return <>
     <WField />
     <WButton>Text</WButton>
     <WButton type='link'>A Link</WButton>
-    <WTextField labelText='test within WTextField' />
-    <WTextField labelText='test with overlap' overlap={true} />
-    <WTextField type='textarea' labelText='Text Area' overlap={true} height='6' />
-    <WOptionButton type='radio' labelText='Radio button' />
-    <WOptionButton type='checkbox' labelText='Checkbox' />
-    <WModal show='true'>Stuff</WModal>
+    <WTextField text='test within WTextField' />
+    <WTextField text='test with overlap' overlap={true} />
+    <WTextField type='textarea' text='Text Area' overlap={true} height='6' />
+    <WOptionButton type='radio' text='Radio button' />
+    <WOptionButton type='checkbox' text='Checkbox' />
+    <WModal show={openModal} closeHandler={closeHandler}>Stuff and not closable</WModal>
+    <WButton type='button' clickHandler={openModalHandler}>open Modal!</WButton>
+    <WSelectBox />
   </>
 }
 

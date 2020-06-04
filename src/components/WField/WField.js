@@ -37,7 +37,7 @@ export const WField = ({ name, id, type, onChange, height }) => {
 }
 
 WField.propTypes = {
-  type: PropTypes.oneOf(['text', 'number', 'password'])
+  type: PropTypes.oneOf(['text', 'number', 'password', 'textarea'])
 }
 
 const Field = styled.input`
