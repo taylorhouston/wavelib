@@ -2,6 +2,7 @@ import React from 'react'
 import { WField } from '../..'
 import { WLabel } from '../WLabel/WLabel'
 import styled from 'styled-components'
+
 export const WTextField = ({
   id,
   classes,
@@ -9,7 +10,6 @@ export const WTextField = ({
   name,
   onChange,
   text,
-  overlap
 }) => {
   const changeHandler = () => {
     onChange()
@@ -17,7 +17,7 @@ export const WTextField = ({
 
   return (
     <Container>
-      <WLabel overlap={overlap}>{text}</WLabel>
+      <WLabel>{text}</WLabel>
       <WField
         id={id}
         type={type}
