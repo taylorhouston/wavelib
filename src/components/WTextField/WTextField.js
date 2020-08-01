@@ -3,14 +3,7 @@ import { WField } from '../..'
 import { WLabel } from '../WLabel/WLabel'
 import styled from 'styled-components'
 
-export const WTextField = ({
-  id,
-  classes,
-  type,
-  name,
-  onChange,
-  text,
-}) => {
+export const WTextField = ({ id, classes, type, name, onChange, text }) => {
   const changeHandler = () => {
     onChange()
   }

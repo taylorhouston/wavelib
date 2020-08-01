@@ -1,14 +1,15 @@
 {
   "name": "wavelib-example",
   "homepage": "https://taylorhouston.github.io/wavelib",
-  "version": "0.0.6",
+  "version": "0.0.8",
   "private": false,
   "dependencies": {
-    "react": "file:../node_modules/react",
-    "react-dom": "file:../node_modules/react-dom",
-    "react-scripts": "file:../node_modules/react-scripts",
-    "react-redux": "file:../node_modules/react-redux",
-    "wavelib": "file:.."
+    "react": "link:../node_modules/react",
+    "react-dom": "link:../node_modules/react-dom",
+    "react-scripts": "link:../node_modules/react-scripts",
+    "react-redux": "link:../node_modules/react-redux",
+    "wavelib": "link:..",
+    "styled-components": "link:../node_modules/styled-components"
   },
   "scripts": {
     "start": "node ../node_modules/react-scripts/bin/react-scripts.js start",

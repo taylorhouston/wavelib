@@ -10,7 +10,7 @@ import {store} from './store'
 const theme = {
   colors: {
     primary: 'blue',
-    secondary: '',
+    secondary: 'purple',
     highlight: 'orange'  // color used for CTA and errors
   },
   defaults: {
@@ -28,4 +28,9 @@ const theme = {
 
 }
 
-ReactDOM.render(<ThemeProvider theme={theme}><Provider store={store}><App /></Provider></ThemeProvider>, document.getElementById('root'))
+ReactDOM.render(<ThemeProvider theme={theme}>
+  <Provider store={store}>
+    <App />
+    </Provider>
+    </ThemeProvider>
+    , document.getElementById('root'))

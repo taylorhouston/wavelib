@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import {useFormLogic} from "wavelib";
 import { WField, WTextField, WButton, WModal, WOptionButton, WSelectBox } from 'wavelib'
-export const FormExample = ({children}) => {
+export const FormExample = () => {
   const {
     setUrl,
     setFormName,
