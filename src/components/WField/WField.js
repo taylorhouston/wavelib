@@ -79,6 +79,7 @@ const Field = styled.input`
   height: 4rem;
   font-size: ${(props) => props.theme.defaults.font};
   padding: 0 1.2rem;
+  width: 100%;
 `
 
 const TextArea = styled.textarea`

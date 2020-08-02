@@ -16,6 +16,8 @@ export const FormExample = () => {
   }, [setUrl, setFormName])
 
 
+
+
   const [openModal, setOpenModal] = useState(false)
   const openModalHandler = () => {
     setOpenModal(true)
@@ -32,7 +34,7 @@ export const FormExample = () => {
     <WTextField text='test within WTextField' />
     <WTextField text='test with overlap' />
     <WTextField type='textarea' text='Text Area' height='6' />
-    <WOptionButton id='testRadioId' name='apple' type='radio' text='Radio button' changeHandler={handleChange} checked={true} />
+    <WOptionButton id='testRadioId' name='apple' type='radio' text='Radio button' changeHandler={handleChange} checked={false} />
     <WOptionButton id='testRadioId2' name='apple' type='radio' text='Radio button 2' changeHandler={handleChange} checked={false} />
     <WOptionButton type='checkbox' text='Checkbox' />
     <WModal show={openModal} closeHandler={closeHandler}>Stuff and not closable</WModal>
