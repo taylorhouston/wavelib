@@ -6,7 +6,9 @@ export const WButton = ({ type, link, title, children, submitted, clickHandler }
   return (
     <>
       {type !== 'link' && (
-        <Button onClick={clickHandler} type={type}>{submitted ? '' : children}</Button>
+        <Button onClick={clickHandler} type={type}>
+          {submitted ? '' : children}
+        </Button>
       )}
       {type === 'link' && (
         <Anchor href={link} title={title}>

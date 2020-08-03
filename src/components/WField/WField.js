@@ -7,7 +7,7 @@ export const WField = ({
   id,
   type,
   autocomplete,
-  onChange,
+  changeHandler,
   placeholder,
   autofocus,
   disabled,
@@ -24,10 +24,10 @@ export const WField = ({
   }
 
   const handleChange = (event) => {
-    return {
+    changeHandler({
       name: name,
       value: event.currentTarget.value
-    }
+    })
   }
 
   return (
@@ -48,6 +48,7 @@ export const WField = ({
         <TextArea
           name={name}
           autocomplete={autocomplete}
+          onChange={handleChange}
           autoFocus={autofocus}
           placeholder={placeholder}
           disabled={disabled}
@@ -78,6 +79,7 @@ WField.propTypes = {
 const Field = styled.input`
   height: 4rem;
   font-size: ${(props) => props.theme.defaults.font};
+  border: 0.1rem solid ${(props) => props.theme.colors.primary};
   padding: 0 1.2rem;
   width: 100%;
 `
@@ -86,4 +88,5 @@ const TextArea = styled.textarea`
   font-size: ${(props) => props.theme.defaults.font};
   width: 100%;
   padding: 1.2rem;
+  border: 0.1rem solid ${(props) => props.theme.colors.primary};
 `

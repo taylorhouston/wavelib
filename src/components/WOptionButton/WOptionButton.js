@@ -7,21 +7,32 @@ export const WOptionButton = ({
   id,
   changeHandler,
   text,
+  value,
   type,
   testid,
   checked
 }) => {
+
+  const changeOptionButtonHandler = (e) => {
+    if (e.currentTarget.checked) {
+      changeHandler({ name: name, value: value })
+    } else {
+      changeHandler({ name: name, value: false })
+    }
+  }
+
   return (
     <Label htmlFor={id}>
       <HiddenInput
         type={type}
-        value='true'
+        value={value}
         name={name}
         id={id}
-        onChange={changeHandler}
+        defaultChecked={checked}
+        onChange={changeOptionButtonHandler}
       />
       {type === 'checkbox' ? (
-        <FakeCheckbox role='checkbox' data-testid={testid} checked={checked}>
+        <FakeCheckbox role='checkbox' data-testid={testid}>
           <Checkmark
             xmlns='http://www.w3.org/2000/svg'
             viewBox='0 0 9.08 9.56'
@@ -35,7 +46,7 @@ export const WOptionButton = ({
           </Checkmark>
         </FakeCheckbox>
       ) : (
-        <FakeRadio role='radio' data-testid={testid} checked={checked}>
+        <FakeRadio role='radio' data-testid={testid}>
           <RadioCenter />
         </FakeRadio>
       )}
@@ -44,9 +55,9 @@ export const WOptionButton = ({
   )
 }
 const Label = styled.label`
-  display: inline-block;
-  line-height: 4rem;
-  vertical-align: middle;
+  display: flex;
+  align-items: center;
+  margin: .6rem 0;
   font-size: ${(props) => props.theme.defaults.font};
 `
 // shared characteristics between Checkbox and Radio buttons

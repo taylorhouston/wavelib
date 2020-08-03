@@ -10,7 +10,7 @@ export function useFormLogic() {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    dispatch(formSubmitAction(url, formName))
+    dispatch(formSubmitAction(url, formName, 'POST'))
   }
 
   const handleChange = (data) => {

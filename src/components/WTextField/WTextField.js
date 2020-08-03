@@ -1,12 +1,8 @@
 import React from 'react'
-import { WField } from '../..'
-import { WLabel } from '../WLabel/WLabel'
+import { WField, WLabel } from '../..'
 import styled from 'styled-components'
 
-export const WTextField = ({ id, classes, type, name, onChange, text }) => {
-  const changeHandler = () => {
-    onChange()
-  }
+export const WTextField = ({ id, type, name, changeHandler, text }) => {
 
   return (
     <Container>
@@ -15,7 +11,7 @@ export const WTextField = ({ id, classes, type, name, onChange, text }) => {
         id={id}
         type={type}
         name={name}
-        onChange={changeHandler}
+        changeHandler={changeHandler}
         textarea={false}
       />
     </Container>

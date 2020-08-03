@@ -9,12 +9,12 @@ export const formUpdateAction = (data) => {
   return { type: FORM_UPDATE, payload: data }
 }
 
-export const formSubmitAction = (url, formName) => {
+export const formSubmitAction = (url, formName, method = 'GET') => {
   return (dispatch, getReduxStore) => {
     dispatch({ type: FORM_LOADING, payload: { formName: formName } })
     fetch(url, {
-      method: 'POST',
-      mode: 'crs',
+      method: method,
+      mode: 'cors',
       headers: {
         'Content-Type': 'application/json'
       },
