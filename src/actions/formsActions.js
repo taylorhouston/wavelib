@@ -12,20 +12,21 @@ export const formUpdateAction = (data) => {
 export const formSubmitAction = (url, formName, method = 'GET') => {
   return (dispatch, getReduxStore) => {
     dispatch({ type: FORM_LOADING, payload: { formName: formName } })
-    fetch(url, {
-      method: method,
-      mode: 'cors',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(getReduxStore().forms[formName])
-    })
+    window
+      .fetch(url, {
+        method: method,
+        mode: 'cors',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(getReduxStore().forms[formName])
+      })
       .then((response) => {
         return response.json()
       })
       .then((data) => {
-        if (data.status !== 200) {
-          const payloadObj = { errors: data.errors, formName: formName }
+        if (data.status !== 'success') {
+          const payloadObj = { errors: data.info, formName: formName }
           return dispatch({ type: FORM_ERROR, payload: payloadObj })
         } else {
           dispatch({ type: FORM_SUBMIT, payload: data })

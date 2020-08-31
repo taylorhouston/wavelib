@@ -1,14 +1,21 @@
 import {
-  FORM_SUBMIT,
   FORM_UPDATE,
   FORM_ERROR,
-  FORM_LOADING
+  FORM_LOADING,
+  FORM_CLEAR,
+  FORM_SUCCESS
 } from '../constants/formConstants'
-
+import { HYDRATE } from 'next-redux-wrapper'
 const initialState = {}
 
 export const formsReducer = (reduxState = initialState, action) => {
   switch (action.type) {
+    case HYDRATE: {
+      return {
+        ...reduxState,
+        ...action.payload
+      }
+    }
     case FORM_UPDATE: {
       return {
         ...reduxState,
@@ -18,21 +25,13 @@ export const formsReducer = (reduxState = initialState, action) => {
         }
       }
     }
-    case FORM_SUBMIT: {
-      return {
-        ...reduxState,
-        [action.payload.formName]: {
-          status: true
-        }
-      }
-    }
     case FORM_ERROR: {
       return {
         ...reduxState,
         [action.payload.formName]: {
           ...reduxState[action.payload.formName],
           errors: action.payload.errors,
-          status: false
+          loading: false
         }
       }
     }
@@ -41,8 +40,24 @@ export const formsReducer = (reduxState = initialState, action) => {
         ...reduxState,
         [action.payload.formName]: {
           ...reduxState[action.payload.formName],
-          status: true
+          loading: action.payload.loading
         }
+      }
+    }
+    case FORM_SUCCESS: {
+      return {
+        ...reduxState,
+        [action.payload.formName]: {
+          ...reduxState[action.payload.formName],
+          success: true
+        }
+      }
+    }
+    case FORM_CLEAR: {
+      console.log('formReducer FORM_CLEAR', action)
+      return {
+        ...reduxState,
+        [action.payload.formName]: { success: true }
       }
     }
     default: {

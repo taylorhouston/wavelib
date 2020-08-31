@@ -1,17 +1,26 @@
-import React, {Fragment} from 'react'
+import React, { Fragment } from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
-export const WButton = ({ type, link, title, children, submitted, clickHandler }) => {
+export const WButton = ({
+  type,
+  link,
+  title,
+  children,
+  submitted,
+  clickHandler,
+  themeColor,
+  textColor = '#fff'
+}) => {
   return (
     <>
       {type !== 'link' && (
-        <Button onClick={clickHandler} type={type}>
+        <Button onClick={clickHandler} type={type} themeColor={themeColor}>
           {submitted ? '' : children}
         </Button>
       )}
       {type === 'link' && (
-        <Anchor href={link} title={title}>
+        <Anchor href={link} title={title} themeColor={themeColor}>
           {children}
         </Anchor>
       )}
@@ -30,6 +39,10 @@ const Button = styled.button`
   font-size: 1.5rem;
   height: 4rem;
   border: 0;
+  background-color: ${(props) =>
+    props.themeColor
+      ? props.theme.color[props.themeColor]
+      : props.theme.color.primary};
 `
 
 const Anchor = styled.a`
@@ -37,5 +50,8 @@ const Anchor = styled.a`
   padding: 1rem 2rem;
   font-size: 1.5rem;
   height: 4rem;
-  background-color: lightgray;
+  background-color: ${(props) =>
+    props.themeColor
+      ? props.theme.color[props.themeColor]
+      : props.theme.color.primary};
 `

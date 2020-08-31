@@ -12,7 +12,6 @@ export const WOptionButton = ({
   testid,
   checked
 }) => {
-
   const changeOptionButtonHandler = (e) => {
     if (e.currentTarget.checked) {
       changeHandler({ name: name, value: value })
@@ -33,10 +32,7 @@ export const WOptionButton = ({
       />
       {type === 'checkbox' ? (
         <FakeCheckbox role='checkbox' data-testid={testid}>
-          <Checkmark
-            xmlns='http://www.w3.org/2000/svg'
-            viewBox='0 0 9.08 9.56'
-          >
+          <Checkmark xmlns='http://www.w3.org/2000/svg' viewBox='0 0 9.08 9.56'>
             <polyline
               fill='none'
               strokeWidth='2px'
@@ -57,7 +53,7 @@ export const WOptionButton = ({
 const Label = styled.label`
   display: flex;
   align-items: center;
-  margin: .6rem 0;
+  margin: 0.6rem 0;
   font-size: ${(props) => props.theme.defaults.font};
 `
 // shared characteristics between Checkbox and Radio buttons
@@ -65,6 +61,7 @@ const OptionButton = styled.div`
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  flex-shrink: 0;
   border: 1px solid;
   margin: 0 0.5rem;
   width: 2.6rem;

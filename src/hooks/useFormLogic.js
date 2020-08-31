@@ -2,9 +2,9 @@ import { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { formSubmitAction, formUpdateAction } from '../actions/formsActions'
 
-export function useFormLogic() {
-  const [formName, setFormName] = useState('')
-  const [url, setUrl] = useState('')
+export function useFormLogic(defaultFormName, defaultUrl) {
+  const [formName, setFormName] = useState(defaultFormName)
+  const [url, setUrl] = useState(defaultUrl)
   const selector = useSelector((state) => state.forms[formName]) || ''
   const dispatch = useDispatch()
 
