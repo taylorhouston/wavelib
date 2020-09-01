@@ -13,23 +13,19 @@ export const WButton = ({
   textColor = '#fff'
 }) => {
   return (
-    <>
-      {type !== 'link' && (
-        <Button onClick={clickHandler} type={type} themeColor={themeColor}>
-          {submitted ? '' : children}
-        </Button>
-      )}
-      {type === 'link' && (
-        <Anchor href={link} title={title} themeColor={themeColor}>
-          {children}
-        </Anchor>
-      )}
-    </>
+    <Button
+      onClick={clickHandler}
+      type={type}
+      themeColor={themeColor}
+      textColor={textColor}
+    >
+      {submitted ? '' : children}
+    </Button>
   )
 }
 
 WButton.propTypes = {
-  type: PropTypes.oneOf(['button', 'submit', 'reset', 'link']),
+  type: PropTypes.oneOf(['button', 'submit', 'reset']),
   submitted: PropTypes.bool
 }
 
@@ -41,17 +37,6 @@ const Button = styled.button`
   border: 0;
   background-color: ${(props) =>
     props.themeColor
-      ? props.theme.color[props.themeColor]
-      : props.theme.color.primary};
-`
-
-const Anchor = styled.a`
-  margin: 1rem 0;
-  padding: 1rem 2rem;
-  font-size: 1.5rem;
-  height: 4rem;
-  background-color: ${(props) =>
-    props.themeColor
-      ? props.theme.color[props.themeColor]
-      : props.theme.color.primary};
+      ? props.theme.colors[props.themeColor]
+      : props.theme.colors.primary};
 `
